@@ -1,14 +1,14 @@
-#include "Composant.h"
-
 #ifndef LED_H
 #define LED_H
+
+#include "Composant.h"
 
 class Led : public Composant
 {
 private:
-    bool is_on;
+    bool m_is_on;
 public:
-    Led(int t_pin);
+    Led(char t_pin);
     void turn_on();
     void turn_off();
     void toggle();
