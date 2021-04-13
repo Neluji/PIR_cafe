@@ -1,16 +1,15 @@
 #include "Led.h"
+#include "Potentiometre.h"
 
 Led led(D8);
-int ratio = 0;
+Potentiometre pot(A0);
 
 void setup() {
-  pinMode(A0,INPUT);
 }
 
 void loop() {
-  ratio = analogRead(A0);
   led.turn_off();
-  delay(ratio);
+  delay(pot.recuperer_valeur()+10);
   led.turn_on();
-  delay(ratio);
+  delay(pot.recuperer_valeur()+10);
 }

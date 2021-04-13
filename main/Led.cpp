@@ -12,7 +12,7 @@ void Led::turn_on() {
 
 void Led::turn_off() {
     digitalWrite(m_pin, LOW);
-    m_is_on = true;
+    m_is_on = false;
 }
 
 void Led::toggle() {
