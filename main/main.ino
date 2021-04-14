@@ -5,11 +5,13 @@ Led led(D8);
 Potentiometre pot(A0);
 
 void setup() {
+  pinMode(D5, INPUT);
 }
 
 void loop() {
-  led.turn_off();
-  delay(pot.recuperer_valeur()+10);
-  led.turn_on();
-  delay(pot.recuperer_valeur()+10);
+  if (digitalRead(D5) == HIGH)
+  {
+    led.turn_on();
+  }
+  else led.turn_off();
 }
