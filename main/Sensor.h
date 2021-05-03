@@ -7,7 +7,7 @@ class Sensor : public Composant
 {
 public:
     Sensor(char t_pin);
-    int Read();
+    int read();
 };
 
 #endif

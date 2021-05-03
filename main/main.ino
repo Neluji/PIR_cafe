@@ -1,17 +1,10 @@
-#include "Led.h"
-#include "Potentiometre.h"
+#include "Lcd.h"
+#include "res/smiley.h"
 
-Led led(D8);
-Potentiometre pot(A0);
+Lcd lcd;
 
 void setup() {
-  pinMode(D5, INPUT);
+  lcd.selectScreen();
 }
 
-void loop() {
-  if (digitalRead(D5) == HIGH)
-  {
-    led.turn_on();
-  }
-  else led.turn_off();
-}
+void loop() {}

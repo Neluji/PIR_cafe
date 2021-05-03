@@ -1,24 +1,33 @@
 #include <Arduino.h>
+#include <U8g2lib.h>
+#include <SPI.h>
+#include <Wire.h>
 #include "Lcd.h"
 
-Lcd::Lcd(char t_pin) : Serial_Device(230400) {}
-
-void Lcd::display_image(String t_image, int t_width, int t_height) {
-    for (int i = 0; i < t_width/8; i++) {
-        serial_send_data(&m_image_set.at(t_image).first[i * t_height], t_height);
-        delay(70);
-    }
-    delay(70);
-    for (int i = 0; i < t_width/8; i++) {
-        serial_send_data(&m_image_set.at(t_image).second[i * t_height], t_height);
-        delay(70);
-    }
+Lcd::Lcd() : u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE) {
+    u8g2.begin();
 }
 
-void Lcd::add_to_set(String t_name,pair<char*,char*> t_image) {
-    m_image_set.insert(make_pair(t_name,t_image));
+void Lcd::printText(const int t_x, const int t_y, const char* t_text, const uint8_t* t_font) {
+    u8g2.firstPage();
+    do
+    {
+        u8g2.setFont(t_font);
+        u8g2.drawStr(t_x,t_y,t_text);
+    } while (u8g2.nextPage());
 }
 
-void Lcd::remove_from_set(String t_name) {
-    m_image_set.erase(t_name);
+void Lcd::printBmp(const int t_height, const int t_width, const uint8_t* t_bmp) {
+    u8g2.firstPage();
+    do
+    {
+        u8g2.drawXBM(0,0,t_width,t_height,t_bmp);
+    } while (u8g2.nextPage());
+}
+
+//==== Screens definitions ====//
+
+//Les \n ne marchent pas --> écrire en plusieurs ligne
+void Lcd::selectScreen() {
+    printText(0,40,"Veuillez\nsélectionner\nun café",u8g2_font_logisoso16_tf);
 }
