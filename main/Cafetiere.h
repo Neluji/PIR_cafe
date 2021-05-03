@@ -15,18 +15,16 @@ private:
     Bouton bouton_expresso;
     Sensor capteur_eau;
     Potentiometre pot_eau;
-    Chauffage chauffage('D2');
-    Pompe pompe('D1');
+    Chauffage chauffage(D2);
+    Pompe pompe(D1);
     int type_cafe;
 
 public:
     Cafetiere();
     void selection_cafe();
-    void niveau_eau();
-    void lancer_chauffe();
-    void arreter_chauffe();
-    void lancer_pompe();
-    void arreter_pompe();
+    void check_eau();
+    void cycle_chauffe();
+    void cycle_pompe();
 
     void fonctionne();
 
