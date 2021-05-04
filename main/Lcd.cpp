@@ -32,7 +32,7 @@ void Lcd::welcome_screen() {
     u8g2.firstPage();
     do
     {
-        u8g2.drawXBM
+        
     } while (u8g2.nextPage());
     
 }
@@ -65,5 +65,8 @@ void Lcd::prepare_screen(int percentage) {
     } while (u8g2.nextPage());
 }
 
-void Lcd::water_alert_screen() {}
+void Lcd::water_alert_screen() {
+    print_bmp(wateralert_height,wateralert_width,wateralert_bits);
+}
+
 void Lcd::sleep_screen() {}

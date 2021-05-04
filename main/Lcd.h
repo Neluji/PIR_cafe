@@ -19,6 +19,10 @@ public:
     void espresso_screen();
     void prepare_screen(int percentage);
     void water_alert_screen();
+    void sleep_screen();
+
+    /*void coffee_spec_screen();
+    void name_screen(String name);*/
 };
 
 #endif
