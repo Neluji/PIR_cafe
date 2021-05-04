@@ -1,10 +1,9 @@
 #include "Lcd.h"
-#include "res/smiley.h"
 
 Lcd lcd;
 
 void setup() {
-  lcd.selectScreen();
+  lcd.select_screen();
 }
 
 void loop() {}
