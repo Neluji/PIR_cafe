@@ -3,6 +3,8 @@
 #include "Bouton.h"
 #include "Potentiometre.h"
 #include "Sensor.h"
+#include "Chauffage.h"
+#include "Pompe.h"
 
 #ifndef CAFETIERE_H
 #define CAFETIERE_H
@@ -11,23 +13,45 @@ class Cafetiere
 {
 private:
     Led led_alim;
-    Bouton bouton_filtre;
-    Bouton bouton_expresso;
+    Bouton bouton_switch;
+    Bouton bouton_select;
     Sensor capteur_eau;
-    Potentiometre pot_eau;
-    Chauffage chauffage(D2);
-    Pompe pompe(D1);
+    Chauffage chauffage;
+    Pompe pompe;
+    // 1 : filtre, 2 : expresso
     int type_cafe;
+    // 0 : pas assez d'eau, 1 : assez d'eau
+    bool niveau_eau_OK;
+    // paliers de temperature
+    float static palier_temp_inf = 10 / (15 + 10);
+    float static palier_temp_sup = 10 / (10 + 10);
+    // temps de preparation (en ms)
+    unsigned long tps_cafe;
+    unsigned long static tps_cafe_filtre = 10000; /* WIP valeur arbitraire */
+    unsigned long static tps_cafe_expresso = 20000; /* WIP valeur arbitraire */
+    // temps de chauffe (en ms)
+    unsigned long tps_chauffe;
+    unsigned long static tps_chauffe_filtre = 10000; /* WIP valeur arbitraire */
+    unsigned long static tps_chauffe_expresso = 20000; /* WIP valeur arbitraire */
+    // temps de pompage (en ms)
+    unsigned long tps_pompe;
+    unsigned long static tps_pompe_filtre = 5000; /* WIP valeur arbitraire */
+    unsigned long static tps_pompe_expresso = 10000; /* WIP valeur arbitraire */
+    // temps d'utilisation (en ms)
+    unsigned long start_time;
+    unsigned long elapsed_time;
+    unsigned long static sleep_time = 1800000;
+    // mode veille
+    bool go_sleep;
 
 public:
     Cafetiere();
     void selection_cafe();
+    void check_sleep();
     void check_eau();
-    void cycle_chauffe();
-    void cycle_pompe();
-
+    void preparer_chauffe();
+    void cycle_machine();
     void fonctionne();
-
 };
 
 #endif
