@@ -60,8 +60,8 @@ void Lcd::prepare_screen(int percentage) {
     u8g2.firstPage();
     do
     {
-        u8g2.drawBox(10,100,box_width,20);
         u8g2.drawXBM(0,0,prepare_width,prepare_height,prepare_bits);
+        u8g2.drawBox(10,100,box_width,20);
     } while (u8g2.nextPage());
 }
 

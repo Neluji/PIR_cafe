@@ -31,6 +31,11 @@
 *.out
 *.app
 
-/.vscode
-/build
+# GIMP projects
+*.xcf
+
+# IDE-related folders
+.vscode
+.vs
+build
 *.xcf
