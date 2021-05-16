@@ -1,10 +1,9 @@
 #include "Composant.h"
 #include "Led.h"
 #include "Bouton.h"
-#include "Potentiometre.h"
-#include "Sensor.h"
 #include "Chauffage.h"
 #include "Pompe.h"
+#include "Afficheur.h"
 
 #ifndef CAFETIERE_H
 #define CAFETIERE_H
@@ -15,13 +14,11 @@ private:
     Led led_alim;
     Bouton bouton_switch;
     Bouton bouton_select;
-    Sensor capteur_eau;
     Chauffage chauffage;
     Pompe pompe;
+    Afficheur afficheur;
     // 1 : filtre, 2 : expresso
     int type_cafe;
-    // 0 : pas assez d'eau, 1 : assez d'eau
-    bool niveau_eau_OK;
     // paliers de temperature
     float static palier_temp_inf = 10 / (15 + 10);
     float static palier_temp_sup = 10 / (10 + 10);
@@ -48,7 +45,6 @@ public:
     Cafetiere();
     void selection_cafe();
     void check_sleep();
-    void check_eau();
     void preparer_chauffe();
     void cycle_machine();
     void fonctionne();

@@ -2,7 +2,7 @@
 #include "Chauffage.h"
 
 Chauffage::Chauffage(char t_pin) : Composant(t_pin, OUTPUT), m_is_on(false) {
-    turn_off();
+    stop();
 }
 
 void Chauffage::start() {
@@ -13,13 +13,6 @@ void Chauffage::start() {
 void Chauffage::stop() {
     digitalWrite(m_pin, LOW);
     m_is_on = false;
-}
-
-void Chauffage::toggle() {
-    switch (m_is_on) {
-    case true: stop();
-    default: start();
-    }
 }
 
 float Chauffage::read() {

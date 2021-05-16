@@ -11,7 +11,6 @@ public:
     Chauffage(char t_pin);
     void start();
     void stop();
-    void toggle();
     float read();
     bool is_on();
 };

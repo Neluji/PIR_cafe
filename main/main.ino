@@ -1,7 +1,7 @@
-#include "Lcd.h"
+#include "Afficheur.h"
 #include "Bouton.h"
 
-Lcd lcd;
+Afficheur afficheur;
 Bouton bouton(D3);
 int select = 0;
 
@@ -17,22 +17,22 @@ void loop() {
     switch (select)
     {
     case 0:
-      lcd.filter_screen();
+      afficheur.filter_screen();
       break;
     case 1:
-      lcd.prepare_screen(0);
+      afficheur.prepare_screen(0);
       break;
     case 2:
-      lcd.prepare_screen(25);
+      afficheur.prepare_screen(25);
       break;
     case 3:
-      lcd.prepare_screen(50);
+      afficheur.prepare_screen(50);
       break;
     case 4:
-      lcd.prepare_screen(75);
+      afficheur.prepare_screen(75);
       break;
     case 5:
-      lcd.prepare_screen(100);
+      afficheur.prepare_screen(100);
       break;
     
     default:

@@ -1,15 +1,17 @@
  #include <Arduino.h>
  #include "Cafetiere.h"
 
- Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5), capteur_eau(D9),  chauffage(D2), pompe(D1) {
+ Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5), chauffage(D2), pompe(D1) {
      type_cafe = 1;
-     niveau_eau_OK = 0;
      tps_cafe = -1;
      tps_chauffe = -1;
      tps_pompe = -1;
      start_time = 0;
      elapsed_time = 0;
      go_sleep = false;
+     led_alim.turn_on();
+     afficheur.welcome_screen();
+     delay(3000);
  }
  ////////////////////////////////////////////////////////////////////////////////
  void Cafetiere::selection_cafe() {
@@ -57,14 +59,6 @@
      }
  }
  ////////////////////////////////////////////////////////////////////////////////
- void Cafetiere::check_eau() {
-     niveau_eau_OK = !capteur_eau.read();
-     if(!niveau_eau_OK) {
-         /* WIP écran niveau eau insuffisant */
-         delay(5000);
-     }
- }
- ////////////////////////////////////////////////////////////////////////////////
  void Cafetiere::preparer_chauffe() {
      chauffage.start();
      while (chauffage.read() < palier_temp_inf) {
@@ -108,7 +102,6 @@
 
      selection_cafe();
      check_sleep();
-     check_eau();
      preparer_chauffe();
      cycle_machine();
 
