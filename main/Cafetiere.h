@@ -26,14 +26,6 @@ private:
     unsigned long tps_cafe;
     unsigned long static tps_cafe_filtre = 10000; /* WIP valeur arbitraire */
     unsigned long static tps_cafe_expresso = 20000; /* WIP valeur arbitraire */
-    // temps de chauffe (en ms)
-    unsigned long tps_chauffe;
-    unsigned long static tps_chauffe_filtre = 10000; /* WIP valeur arbitraire */
-    unsigned long static tps_chauffe_expresso = 20000; /* WIP valeur arbitraire */
-    // temps de pompage (en ms)
-    unsigned long tps_pompe;
-    unsigned long static tps_pompe_filtre = 5000; /* WIP valeur arbitraire */
-    unsigned long static tps_pompe_expresso = 10000; /* WIP valeur arbitraire */
     // temps d'utilisation (en ms)
     unsigned long start_time;
     unsigned long elapsed_time;

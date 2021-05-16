@@ -1,11 +1,14 @@
  #include <Arduino.h>
  #include "Cafetiere.h"
 
+<<<<<<< Updated upstream
  Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5), chauffage(D2), pompe(D1) {
+=======
+ Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5),  chauffage(D2), pompe(D1) {
+     led_alim.turn_on();
+>>>>>>> Stashed changes
      type_cafe = 1;
      tps_cafe = -1;
-     tps_chauffe = -1;
-     tps_pompe = -1;
      start_time = 0;
      elapsed_time = 0;
      go_sleep = false;
@@ -19,30 +22,29 @@
      start_time = millis();
      elapsed_time = 0;
      go_sleep = false;
+     // présentation du menu
+     /* WIP écran accueil */
+     delay(10000);
+     /* WIP écran expresso (default)*/
 
      // boucle bloquante en attente de l'utilisateur
      while(!bouton_select.is_pushed() && !go_sleep ){
         
-         /* WIP écran accueil */
          if(bouton_switch.is_pushed()){
              if(type_cafe == 1){
                  type_cafe = 2;
                  tps_cafe = tps_cafe_expresso;
-                 tps_chauffe = tps_chauffe_expresso;
-                 tps_pompe = tps_pompe_expresso;
                  /* WIP écran expresso */
              }
              else if(type_cafe == 2){
                  type_cafe = 1;
                  tps_cafe = tps_cafe_filtre;
-                 tps_chauffe = tps_chauffe_filtre;
-                 tps_pompe = tps_pompe_filtre;
                  /* WIP écran filtre */
              }
          }
          // MAJ des variables de veille
          elapsed_time = millis() - start_time;
-         //go_sleep = (elapsed_time > sleep_time); //temp suspendu
+         go_sleep = (elapsed_time > sleep_time);
      }
 
  }
@@ -51,6 +53,7 @@
      if(go_sleep) {
          /* WIP écran mise en veille */
          delay(5000);
+         ESP.deepSleep(0);
         
          ////////////////////////
          // regarder deepSleep //
@@ -65,7 +68,7 @@
          delay(100);
      }
      chauffage.stop();
-     /* WIP a tester, pour faire chuter l'inertie */
+     // retard pour faire chuter l'inertie
      delay(5000);
  }
  ////////////////////////////////////////////////////////////////////////////////
@@ -104,8 +107,6 @@
      check_sleep();
      preparer_chauffe();
      cycle_machine();
-
-     //if(niveau_eau_OK){}
  }
 
 
