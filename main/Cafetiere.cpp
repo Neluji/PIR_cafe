@@ -1,12 +1,7 @@
  #include <Arduino.h>
  #include "Cafetiere.h"
 
-<<<<<<< Updated upstream
  Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5), chauffage(D2), pompe(D1) {
-=======
- Cafetiere::Cafetiere() : led_alim(D7), bouton_switch(D6), bouton_select(D5),  chauffage(D2), pompe(D1) {
-     led_alim.turn_on();
->>>>>>> Stashed changes
      type_cafe = 1;
      tps_cafe = -1;
      start_time = 0;
