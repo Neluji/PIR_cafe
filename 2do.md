@@ -2,30 +2,30 @@
 
 ## `Cafetiere`
 * `selection_cafe`
-- [ ] écran sélection(en 1er ?)/filtre/espresso (`select_screen`/`filter_screen`/`espresso_screen`)
-- [ ] MAJ `go_sleep` ?
+	* - [ ] écran sélection(en 1er ?)/filtre/espresso (`select_screen`/`filter_screen`/`espresso_screen`)
+	* - [ ] MAJ `go_sleep` ?
 * `check_sleep`
-- [ ] implémenter veille
-- [ ] écran mise en veille (`sleep_screen`)
+	* - [ ] implémenter veille
+	* - [ ] écran mise en veille (`sleep_screen`)
 * `check_eau`
-- [ ] retirer ?
+	* - [ ] retirer ?
 * `cycle_machine`
-- [ ] écran préparation en cours (`prepare_screen`)
-- [ ] écran café prêt (2do)
+	* - [ ] écran préparation en cours (`prepare_screen`)
+	* - [ ] écran café prêt (2do)
 * Ajustement niveau eau
-- [ ] ajouter ? ---> ajout d'un bouton, 3 boutons gauche/ok/droite (< | ok | > )
+	* - [ ] ajouter ? ---> ajout d'un bouton, 3 boutons gauche/ok/droite (< | ok | > )
 ## `Bouton`
 * `is_pushed`/`is_released`
-- [ ] Fix ---> aj méth `update_state` ?
+    * - [ ] Fix ---> aj méth `update_state` ?
 ## `Chauffage`
 * `toggle`
-- [ ] enlever ?
+    * - [ ] enlever ?
 ## `Lcd`
 * nom
-- [ ] changer en `Display`
+    * - [ ] changer en `Display`
 * aj écrans
-- [ ] `water_volume_screen`
-- [ ] `ready_screen`
+    * - [ ] `water_volume_screen`
+    * - [ ] `ready_screen`
 ## `Potentiometre`
 * - [ ] retirer ?
 ## `Sensor`
@@ -35,5 +35,5 @@
 
 ## `main`
 * `setup`
-- [ ] Allumer LED alim
-- [ ] lancer `welcome_screen` pdt 2/3sec
+    * - [ ] Allumer LED alim
+    * - [ ] lancer `welcome_screen` pdt 2/3sec
