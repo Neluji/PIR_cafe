@@ -17,10 +17,10 @@
 #define PIN_POMPE D8
 
 //Paramètres café
-#define PALIER_TEMP_INF 0.45
-#define PALIER_TEMP_SUP 0.57
-#define TEMPS_CAFE_FILTRE 13000 /* WIP valeur arbitraire */
-#define TEMPS_CAFE_EXPRESSO 13000 /* WIP valeur arbitraire */
+#define PALIER_TEMP_INF 0.50
+#define PALIER_TEMP_SUP 0.55
+#define TEMPS_CAFE_FILTRE 30000 /* WIP valeur arbitraire */
+#define TEMPS_CAFE_EXPRESSO 7500 /* WIP valeur arbitraire */
 
 //Paramètres système
 #define SLEEP_TIME 1800000

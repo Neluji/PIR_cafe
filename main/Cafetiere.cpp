@@ -14,11 +14,6 @@ Cafetiere::Cafetiere() :
     elapsed_time(0),
     go_sleep(false)
 {
-    /*type_cafe = 1;
-    tps_cafe = TEMPS_CAFE_FILTRE;
-    start_time = 0;
-    elapsed_time = 0;
-    go_sleep = false;*/
     led_alim.turn_on();
     afficheur.welcome_screen();
     delay(3000);
@@ -88,18 +83,40 @@ void Cafetiere::check_sleep()
 void Cafetiere::preparer_chauffe()
 {
     Serial.println("Début préchauffage");
+    afficheur.prepare_screen(0);
     chauffage.start();
     float valeur_temp = chauffage.read();
     while (valeur_temp < PALIER_TEMP_INF)
     {
         Serial.print("|   valeur_temp : ");
+        Serial.print(valeur_temp);
+        Serial.print(" ~ RT = ");
+        Serial.print((10/valeur_temp)-10);
+        Serial.print(";");
+        Serial.print(millis());
+        Serial.print(";");
         Serial.println(valeur_temp);
         valeur_temp = chauffage.read();
         delay(100);
     }
+    Serial.print("|   Arrêt chauffage");
     chauffage.stop();
     // retard pour faire chuter l'inertie
-    delay(5000);
+    /*unsigned long start = millis();
+    while (millis() - start < 5000)
+    {
+        Serial.print("|   valeur_temp : ");
+        Serial.print(valeur_temp);
+        Serial.print(" ~ RT = ");
+        Serial.print((10/valeur_temp)-10);
+        Serial.print(";");
+        Serial.print(millis());
+        Serial.print(";");
+        Serial.println(valeur_temp);
+        valeur_temp = chauffage.read();
+        delay(100);
+    }*/
+    delay(500);
     Serial.println(">Fin préchauffage");
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -120,8 +137,14 @@ void Cafetiere::cycle_machine()
         valeur_temp = chauffage.read();
         en_chauffe = chauffage.is_on();
         Serial.print("|   valeur_temp : ");
+        Serial.print(valeur_temp);
+        Serial.print(" ~ RT = ");
+        Serial.print((10/valeur_temp)-10);
+        Serial.print(";");
+        Serial.print(millis());
+        Serial.print(";");
         Serial.println(valeur_temp);
-        if (valeur_temp < PALIER_TEMP_INF && !en_chauffe)
+        if (valeur_temp < PALIER_TEMP_SUP && !en_chauffe)
         {
             Serial.println("|   Allumage du chauffage");
             chauffage.start();
@@ -132,6 +155,9 @@ void Cafetiere::cycle_machine()
             chauffage.stop();
         }
         delay(100);
+        /*if (!en_chauffe) elapsed_time += millis()- start_time;
+        start_time = millis();*/
+        
         elapsed_time = millis() - start_time;
     }
     pompe.stop();
