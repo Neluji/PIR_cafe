@@ -2,7 +2,7 @@
 #include "Pompe.h"
 
 Pompe::Pompe(char t_pin) : Composant(t_pin, OUTPUT), m_is_on(false) {
-    turn_off();
+    stop();
 }
 
 void Pompe::start() {

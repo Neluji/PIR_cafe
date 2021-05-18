@@ -18,6 +18,8 @@ void Led::turn_off() {
 void Led::toggle() {
     switch(m_is_on) {
         case true : turn_off();
+        break;
         default : turn_on();
+        break;
     }
 }

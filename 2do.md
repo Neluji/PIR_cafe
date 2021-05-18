@@ -2,21 +2,21 @@
 
 ## `Cafetiere`
 * `selection_cafe`
-	* - [ ] écran sélection(en 1er ?)/filtre/espresso (`select_screen`/`filter_screen`/`espresso_screen`)
-	* - [ ] MAJ `go_sleep` ?
+	* - [x] écran sélection(en 1er ?)/filtre/espresso (`select_screen`/`filter_screen`/`espresso_screen`)
+	* - [x] MAJ `go_sleep` ?
 * `check_sleep`
-	* - [ ] implémenter veille
-	* - [ ] écran mise en veille (`sleep_screen`)
+	* - [x] implémenter veille
+	* - [x] écran mise en veille (`sleep_screen`)
 * `check_eau`
 	* - [x] retirer ?
 * `cycle_machine`
-	* - [ ] écran préparation en cours (`prepare_screen`)
-	* - [ ] écran café prêt (`ready_screen`)
+	* - [x] écran préparation en cours (`prepare_screen`)
+	* - [x] écran café prêt (`ready_screen`)
 * ~~Ajustement niveau eau~~
-	* - [ ] ~~ajouter ? ---> ajout d'un bouton, 3 boutons gauche/ok/droite (< | ok | > )~~
+	* - [x] ~~ajouter ? ---> ajout d'un bouton, 3 boutons gauche/ok/droite (< | ok | > )~~
 ## `Bouton`
 * `is_pushed`/`is_released`
-    * - [ ] Fix ---> aj méth `update_state` ?
+    * - [x] Fix ~~---> aj méth `update_state` ?~~
 ## `Chauffage`
 * `toggle`
     * - [x] enlever ?
@@ -24,7 +24,7 @@
 * nom
     * - [x] changer en `Afficheur`
 * aj écrans
-    * - [ ] ~~`water_volume_screen`~~
+    * - [x] ~~`water_volume_screen`~~
     * - [x] `ready_screen`
 ## `Potentiometre`
 * - [x] retirer ?

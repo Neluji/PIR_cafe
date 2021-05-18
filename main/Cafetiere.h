@@ -8,28 +8,45 @@
 #ifndef CAFETIERE_H
 #define CAFETIERE_H
 
+//Configuration des pins
+#define PIN_LED_ALIM D7
+#define PIN_BOUTON_SW D6
+#define PIN_BOUTON_SEL D5
+#define PIN_CHAUFFAGE D4
+#define PIN_TEMP A0
+#define PIN_POMPE D8
+
+//Paramètres café
+#define PALIER_TEMP_INF 0.45
+#define PALIER_TEMP_SUP 0.57
+#define TEMPS_CAFE_FILTRE 13000 /* WIP valeur arbitraire */
+#define TEMPS_CAFE_EXPRESSO 13000 /* WIP valeur arbitraire */
+
+//Paramètres système
+#define SLEEP_TIME 1800000
+
 class Cafetiere
 {
 private:
-    Led led_alim;
-    Bouton bouton_switch;
-    Bouton bouton_select;
-    Chauffage chauffage;
-    Pompe pompe;
-    Afficheur afficheur;
+    Led led_alim; //D7
+    Bouton bouton_switch; //D6
+    Bouton bouton_select; //D5
+    Chauffage chauffage; //D4 out, A0 in
+    Pompe pompe; //D8
+    Afficheur afficheur; //I2C
     // 1 : filtre, 2 : expresso
     int type_cafe;
     // paliers de temperature
-    float static palier_temp_inf = 10 / (15 + 10);
-    float static palier_temp_sup = 10 / (10 + 10);
+    //const float PALIER_TEMP_INF = 0.45;
+    //const float PALIER_TEMP_SUP = 0.57;
     // temps de preparation (en ms)
     unsigned long tps_cafe;
-    unsigned long static tps_cafe_filtre = 10000; /* WIP valeur arbitraire */
-    unsigned long static tps_cafe_expresso = 20000; /* WIP valeur arbitraire */
+    //const unsigned long TEMPS_CAFE_FILTRE = 13000; /* WIP valeur arbitraire */
+    //const unsigned long TEMPS_CAFE_EXPRESSO = 13000; /* WIP valeur arbitraire */
     // temps d'utilisation (en ms)
     unsigned long start_time;
     unsigned long elapsed_time;
-    unsigned long static sleep_time = 1800000;
+    //const unsigned long SLEEP_TIME = 1800000;
     // mode veille
     bool go_sleep;
 

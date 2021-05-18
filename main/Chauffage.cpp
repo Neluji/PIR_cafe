@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Chauffage.h"
 
-Chauffage::Chauffage(char t_pin) : Composant(t_pin, OUTPUT), m_is_on(false) {
+Chauffage::Chauffage(char t_pin, char t_pin_read) : Composant(t_pin, OUTPUT), m_is_on(false), m_pin_read(t_pin_read) {
     stop();
 }
 
@@ -16,7 +16,7 @@ void Chauffage::stop() {
 }
 
 float Chauffage::read() {
-    return analogRead(m_pin)/1024;
+    return (float)(analogRead(m_pin_read))/1024.0;
 }
 
 bool Chauffage::is_on() {
