@@ -1,4 +1,4 @@
 # Projet d'initiation à la recherche
-### Conception dune machine à café résiliente
+### Conception dune machine à café résiliente (et connectée)
 
-Où le café coule à flot ☕
+Là où le café coule à flot ☕

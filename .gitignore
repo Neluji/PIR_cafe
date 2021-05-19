@@ -39,3 +39,6 @@
 .vscode
 .vs
 build
+
+#Result sheet
+*.csv
