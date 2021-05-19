@@ -24,15 +24,18 @@ void Afficheur::print_bmp(const int t_height, const int t_width, const uint8_t* 
     } while (u8g2.nextPage());
 }
 
+void Afficheur::turn_off() {
+    u8g2.noDisplay();
+}
+
 //==== Screens definitions ====//
 
 void Afficheur::welcome_screen() {
-    u8g2.firstPage();
-    do
-    {
-        
-    } while (u8g2.nextPage());
-    
+    print_bmp(welcome_height,welcome_width,welcome_bits);
+    delay(1000);
+    print_bmp(welcome_blink_height,welcome_blink_width,welcome_blink_bits);
+    print_bmp(welcome_height,welcome_width,welcome_bits);
+    delay(1000);
 }
 
 void Afficheur::select_screen() {

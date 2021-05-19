@@ -1,2 +1,3 @@
-# be_cpp
-Où le café coule à flot ☕
+# PIR Machine à café résiliente (et connectée)
+
+Là où le café coule à flot ☕

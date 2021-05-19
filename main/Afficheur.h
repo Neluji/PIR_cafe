@@ -12,6 +12,7 @@ public:
     Afficheur();
     void print_text(const int t_x, const int t_y, const char* t_text, const uint8_t* t_font);
     void print_bmp(const int t_height, const int t_width, const uint8_t* t_bmp);
+    void turn_off();
     //==== Screens definitions ====//
     void welcome_screen();
     void select_screen();

@@ -16,13 +16,10 @@ Cafetiere::Cafetiere() :
 {
     led_alim.turn_on();
     afficheur.welcome_screen();
-    delay(3000);
 }
 ////////////////////////////////////////////////////////////////////////////////
 void Cafetiere::selection_cafe()
 {
-    //pompe.stop();
-    //chauffage.stop();
     Serial.println("Début sélection café :");
     // RAZ des variables de veille
     start_time = millis();
@@ -70,6 +67,7 @@ void Cafetiere::check_sleep()
         Serial.println("|    Mise en deep sleep");
         afficheur.sleep_screen();
         delay(5000);
+        afficheur.turn_off();
         ESP.deepSleep(0);
 
         ////////////////////////
@@ -115,8 +113,14 @@ void Cafetiere::preparer_chauffe()
         Serial.println(valeur_temp);
         valeur_temp = chauffage.read();
         delay(100);
-    }*/
-    delay(500);
+    }
+    delay(500);*/
+    while (valeur_temp < PALIER_TEMP_SUP)
+    {
+        Serial.print("|   Boucle coupe d'inertie");
+        delay(100);
+    }
+    
     Serial.println(">Fin préchauffage");
 }
 ////////////////////////////////////////////////////////////////////////////////
